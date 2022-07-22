@@ -6,8 +6,10 @@ import PrimaryNav from "../Components/RootsFiles/PrimaryNav";
 const Roots = () => {
   return (
     <>
-      <PrimaryNav />
-      <RootHero />
+      <div style={{ backgroundImage: `url(${BannerImg})` }}>
+        <PrimaryNav />
+        <RootHero />
+      </div>
     </>
   );
 };

@@ -8,15 +8,15 @@ const MerakiNav = () => {
     <>
       <header>
         <div
-          style={{ backgroundImage: `url(${BannerImg})` }}
+          // style={{ backgroundImage: `url(${BannerImg})` }}
           className="w-full bg-center bg-cover lg:h-[90vh] h-screen "
         >
           <div className="flex items-center justify-center w-full h-full bg-gray-900 bg-opacity-50">
             <div className="text-center">
               <h1 className="text-2xl font-semibold text-white uppercase lg:text-3xl">
                 Watch Awesome
-                <span className="text-blue-400 underline mx-2">Movies</span>
-                Free
+                <span className="text-blue-400 underline  mx-2">Movies</span>
+                For Free
               </h1>
               <button className="btnDanger  mt-8  ">Log In</button>
             </div>

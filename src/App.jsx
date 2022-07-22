@@ -5,8 +5,8 @@ import Home from "./Pages/Home";
 const App = () => {
   return (
     <>
-      {/* <Roots /> */}
-      <Home />
+      <Roots />
+      {/* <Home /> */}
     </>
   );
 };
