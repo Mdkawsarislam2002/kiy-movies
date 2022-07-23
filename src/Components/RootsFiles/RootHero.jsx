@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import BannerImg from "../../assets/netflixBanner.jpg";
 
 const MerakiNav = () => {
@@ -18,7 +19,9 @@ const MerakiNav = () => {
                 <span className="text-blue-400 underline  mx-2">Movies</span>
                 For Free
               </h1>
-              <button className="btnDanger  mt-8  ">Log In</button>
+              <Link to={"/logIn"} className="btnDanger inline-block  mt-8  ">
+                Log In
+              </Link>
             </div>
           </div>
         </div>
