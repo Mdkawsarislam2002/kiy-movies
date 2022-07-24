@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useAuth } from "../context/AuthContext";
-import KIYLogo from "../Components/KIYLogo";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import KIYLogo from "../Components/KIYLogo";
+import Loader from "../Components/Loader";
+
 const SignIn = () => {
   const AuthValue = useAuth();
   // console.log(AuthValue.signup);
@@ -13,8 +15,10 @@ const SignIn = () => {
   const [userName, setUserName] = useState("");
   const [UserEmail, setUserEmail] = useState("");
   const [userPass, SetUserPass] = useState("");
-  const [error, setError] = useState();
+  const [error, setError] = useState("");
   const [isDisable, setIsDisable] = useState(false);
+  const [IsError, setIsError] = useState(false);
+  const [IsLoading, setIsLoading] = useState(false);
 
   const FontHandler = (e) => {
     if (e.target.type == "text") {
@@ -28,13 +32,18 @@ const SignIn = () => {
 
   const FormSubmit = async (e) => {
     setIsDisable(true);
+    setIsLoading(true);
+
     try {
       e.preventDefault();
       await AuthValue.signup(UserEmail, userPass, userName);
       setIsDisable(false);
       Navigate("/home");
-    } catch (error) {
-      alert(error);
+      setIsLoading(false);
+    } catch (err) {
+      setIsLoading(false);
+      setError(err.message);
+      setIsError(true);
       setIsDisable(false);
     }
   };
@@ -45,8 +54,12 @@ const SignIn = () => {
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         exit={{ scale: 0 }}
-        className="w-screen h-screen  grid place-items-center "
+        className="w-screen h-screen bg-gray-100 dark:bg-slate-900  grid place-items-center "
+        onClick={(e) => {
+          setIsError(false);
+        }}
       >
+        {IsLoading ? <Loader /> : ""}
         <div className="w-full max-w-sm  p-6 m-auto bg-white rounded-md shadow-lg dark:bg-gray-800">
           <div
             className="cursor-pointer"
@@ -56,6 +69,38 @@ const SignIn = () => {
           >
             <KIYLogo />
           </div>
+          {/* PRINT ERROR   END  */}
+          <motion.div
+            initial={{
+              x: "-100vw",
+            }}
+            animate={{
+              x: IsError ? 0 : "-100vw",
+            }}
+            className="flex absolute top-1 right-0 w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800"
+          >
+            <div className="flex items-center justify-center w-12 bg-red-500">
+              <svg
+                className="w-6 h-6 text-white fill-current"
+                viewBox="0 0 40 40"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M20 3.36667C10.8167 3.36667 3.3667 10.8167 3.3667 20C3.3667 29.1833 10.8167 36.6333 20 36.6333C29.1834 36.6333 36.6334 29.1833 36.6334 20C36.6334 10.8167 29.1834 3.36667 20 3.36667ZM19.1334 33.3333V22.9H13.3334L21.6667 6.66667V17.1H27.25L19.1334 33.3333Z" />
+              </svg>
+            </div>
+
+            <div className="px-4 py-2 -mx-3">
+              <div className="mx-3">
+                <span className="font-semibold text-red-500 dark:text-red-400">
+                  Error
+                </span>
+                <p className="text-sm text-gray-600 dark:text-gray-200">
+                  {error}
+                </p>
+              </div>
+            </div>
+          </motion.div>
+          {/* PRINT ERROR   END */}
 
           <form className="mt-6" onSubmit={FormSubmit}>
             <div>
@@ -109,20 +154,20 @@ const SignIn = () => {
             <div className="mt-6">
               <button
                 disabled={isDisable}
-                className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
+                className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-teal-800 focus:outline-none focus:bg-gray-600"
               >
-                Login
+                Sign In
               </button>
             </div>
           </form>
 
           <p className="mt-8 text-xs font-light text-center text-gray-400">
-            Don't have an account?
+            Already Have an Account?
             <Link
               to={"/login"}
               className="font-medium text-gray-700 dark:text-gray-200 hover:underline"
             >
-              Create One
+              Log In
             </Link>
           </p>
         </div>

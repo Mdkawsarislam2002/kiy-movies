@@ -1,5 +1,7 @@
 api key: b59349f0c2f8513bb5cbf2003ec8678b
 
 API Read Access Token : eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiNTkzNDlmMGMyZjg1MTNiYjVjYmYyMDAzZWM4Njc4YiIsInN1YiI6IjYyODhiZDNkMWYzZTYwMDA2N2M5MDM4NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zoO31UXA_G7zRHhqkp7eHHOyvGp5fn8_vUzPLV1MKpE
+ 
+  MyAPI: https://api.themoviedb.org/3/movie/popular?api_key=b59349f0c2f8513bb5cbf2003ec8678b
 
 Example API Request; https://api.themoviedb.org/3/movie/550?api_key=b59349f0c2f8513bb5cbf2003ec8678b
