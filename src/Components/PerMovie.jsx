@@ -1,35 +1,41 @@
 import React from "react";
+import { Star } from "./Icon";
+import { motion } from "framer-motion";
 
-const PerMovie = () => {
-  let PerMovieIg = `https://images.unsplash.com/photo-1521903062400-b80f2cb8cb9d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80`;
+const PerMovie = ({ title, poster, voteAverage, voteCount }) => {
+  let BaseImg = `https://image.tmdb.org/t/p/w500/`;
+  let PosterImg = BaseImg + poster;
+
   return (
     <>
-      <div class=" grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3">
-        <div class="flex flex-col items-center justify-center max-w-sm mx-auto">
+      <motion.div
+        whileHover={{
+          scale: 1.1,
+        }}
+        className=" grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 w-72 mx-3 my-2"
+      >
+        <div className="flex flex-col items-center justify-center  mx-auto">
           <div
-            style={{ backgroundImage: `url(${PerMovieIg})` }}
-            class="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md"
-            // style="
-            //   background-image: url(https://images.unsplash.com/photo-1521903062400-b80f2cb8cb9d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80);
-            // "
+            style={{ backgroundImage: `url(${PosterImg})` }}
+            className="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md"
           ></div>
 
-          <div class="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
-            <h3 class="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">
-              Nike Revolt
+          <div className="w-56 -mt-10 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
+            <h3 className="py-2 font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">
+              {title}
             </h3>
 
-            <div class="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700">
-              <span class="font-bold text-gray-800 dark:text-gray-200">
-                $129
+            <div className="flex items-center justify-between px-3 py-2 bg-gray-200 dark:bg-gray-700">
+              <span className="font-bold flex items-center text-gray-800 dark:text-gray-200">
+                <span>{voteAverage}</span> <Star />
               </span>
-              <button class="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-200 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">
-                Add to cart
+              <button className="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-200 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">
+                Details
               </button>
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };
