@@ -25,13 +25,14 @@ const Popular = () => {
     <>
       <div className="m-4">
         <h2 className="text-xl font-bold mx-2  "> Popular Movie Right Now </h2>
-        <div className=" flex overflow-x-scroll my-4">
+        <div className=" flex NoScrollBar lg:scrollBar overflow-x-scroll my-4">
           {IsLoading ? (
             <div className="grid place-content-center w-screen">
               <img src={Loader} alt="loading" />
             </div>
           ) : (
             FinalData.map((movieData) => {
+              
               return (
                 <div key={movieData.id}>
                   <PerMovie
@@ -47,7 +48,7 @@ const Popular = () => {
 
           {/* 2nd fetch  */}
           {IsLoading ? (
-            <div className="grid place-content-center w-screen">
+            <div className="grid  place-content-center w-screen">
               <img src={Loader} alt="loading" />
             </div>
           ) : (
