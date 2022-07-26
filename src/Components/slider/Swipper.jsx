@@ -1,19 +1,35 @@
-import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
 
-export default function SwiperSlider() {
+import PerMovie from "../PerMovie";
+
+export default ({ apiData }) => {
   return (
-    <div className="my-4">
-      <Swiper className="mySwiper">
-        <SwiperSlide>
-          <div className="py-4 bg-slate-400">Slide 1</div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="py-4 bg-slate-400">Slide 2</div>
-        </SwiperSlide>
+    <>
+      <Swiper
+        spaceBetween={50}
+        slidesPerView={3}
+        // onSlideChange={() => console.log("slide change")}
+        // onSwiper={(swiper) => console.log(swiper)}
+      >
+        {apiData.results &&
+          apiData.results.map((data, index) => {
+            //  title, poster, voteAverage, voteCount
+            return (
+              <>
+                <SwiperSlide key={index}>
+                  <PerMovie
+                    title={data.title}
+                    voteAverage={data.vote_average}
+                    voteCount={data.vote_count}
+                    poster={data.poster_path}
+                  />
+                </SwiperSlide>
+                ;
+              </>
+            );
+          })}
       </Swiper>
-    </div>
+    </>
   );
-}
+};

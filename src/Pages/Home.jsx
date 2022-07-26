@@ -4,7 +4,7 @@ import TopArea from "../Components/HomePages/TopArea";
 import Popular from "../Components/MovieBox/Popular";
 import PopUpCard from "../Components/HomePages/PopUpCard";
 import TopRated from "../Components/TopRatedPage/TopRated";
-
+import NowPlaying from "../Components/slider/MoviePages/NowPlaying";
 const Home = () => {
   return (
     <div>
@@ -12,6 +12,7 @@ const Home = () => {
       <TopArea />
       <Popular />
       <TopRated />
+      <NowPlaying />
     </div>
   );
 };

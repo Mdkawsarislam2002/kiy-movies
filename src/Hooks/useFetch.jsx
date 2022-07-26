@@ -10,7 +10,7 @@ const useFetch = (url) => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        setFinalData(data.results);
+        setFinalData(data);
         setIsLoading(false);
         setIsError(false);
       });
