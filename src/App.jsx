@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { AuthProvider } from "./context/AuthContext";
+import { AuthProvider, useAuth } from "./context/AuthContext";
 import Roots from "./Pages/Roots";
 import Home from "./Pages/Home";
 import SignIn from "./Pages/SignIn";
@@ -9,6 +9,7 @@ import PrivetRout from "./Components/PrivetRout";
 import ErrorPage from "./Pages/ErrorPage";
 
 const App = () => {
+
   return (
     <>
       <BrowserRouter>
