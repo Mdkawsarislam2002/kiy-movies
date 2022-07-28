@@ -19,7 +19,7 @@ const PerMovie = ({ title, poster, voteAverage, voteCount }) => {
         whileHover={{
           scale: 1.1,
         }}
-        className="  w-72   lg:mx-3 my-2 bg-teal-500"
+        className="  w-72   lg:mx-3 my-2"
    
       >
         <div className=" mx-20 md:mx-auto">
