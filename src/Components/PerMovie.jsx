@@ -9,12 +9,20 @@ const PerMovie = ({ title, poster, voteAverage, voteCount }) => {
   return (
     <>
       <motion.div
+        drag
+        dragConstraints={{
+          top: 0,
+          bottom: 0,
+          left: 5,
+          right: 5,
+        }}
         whileHover={{
           scale: 1.1,
         }}
-        className=" grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 w-72 mx-3 my-2"
+        className="  w-72   lg:mx-3 my-2 bg-teal-500"
+   
       >
-        <div className="flex flex-col items-center justify-center  mx-auto">
+        <div className=" mx-20 md:mx-auto">
           <div
             style={{ backgroundImage: `url(${PosterImg})` }}
             className="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md"

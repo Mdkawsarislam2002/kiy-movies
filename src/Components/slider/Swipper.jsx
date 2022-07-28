@@ -1,9 +1,10 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import leadingSpiner from "../../assets/leading-spiner.svg";
 
 import PerMovie from "../PerMovie";
 
-export default ({ apiData }) => {
+export default ({ apiData, IsLoading }) => {
   return (
     <>
       <Swiper
@@ -12,9 +13,9 @@ export default ({ apiData }) => {
         // onSlideChange={() => console.log("slide change")}
         // onSwiper={(swiper) => console.log(swiper)}
       >
+        {IsLoading ? <img src={leadingSpiner} alt="" /> : ""}
         {apiData.results &&
           apiData.results.map((data, index) => {
-            //  title, poster, voteAverage, voteCount
             return (
               <>
                 <SwiperSlide key={index}>

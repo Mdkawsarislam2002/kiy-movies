@@ -12,6 +12,9 @@
 }
 
 @layer utilities {
+  .test {
+    border: "2px solid teal";
+  }
   .setWith {
     width: 100% !important;
   }
