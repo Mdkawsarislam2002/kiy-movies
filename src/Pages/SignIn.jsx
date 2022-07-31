@@ -102,6 +102,12 @@ const SignIn = () => {
           </motion.div>
           {/* PRINT ERROR   END */}
 
+          <center>
+            <h2 className="my-4 text-xl font-bold text-slate-600 ">
+              Create A New Account
+            </h2>
+          </center>
+
           <form className="mt-6" onSubmit={FormSubmit}>
             <div>
               <label

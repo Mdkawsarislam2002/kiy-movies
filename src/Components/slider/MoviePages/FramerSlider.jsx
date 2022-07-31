@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { v4 as uuidv4 } from "uuid";
 
 import MovieData from "./MovieData";
 
@@ -27,9 +28,9 @@ const FramerSlider = (props) => {
           className="flex gap-x-4 md:gap-x-2  "
         >
           {apiData.results &&
-            apiData.results.map((data, index) => {
+            apiData.results.map((data) => {
               return (
-                <motion.div>
+                <motion.div key={uuidv4()}>
                   <MovieData
                     title={data.title}
                     voteAverage={data.vote_average}

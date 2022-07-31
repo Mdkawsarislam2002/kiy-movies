@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { v4 as uuidv4 } from "uuid";
 
 import LoaderImg from "../assets/TheLoader.svg";
 import Loader from "../Components/Loader";
@@ -38,6 +39,7 @@ const SearchResultShow = ({
           SearchResult.map((data, index) => {
             return (
               <motion.div
+                key={uuidv4()}
                 className="mt-4 mx-10 sm:mx-2"
                 initial={{
                   x: index % 2 === 0 ? "-200vw" : "50vw",

@@ -145,7 +145,7 @@ const LogIn = () => {
               to={"/SignIn"}
               className="font-medium text-gray-700 ml-2 dark:text-gray-200 hover:underline"
             >
-              Sign In
+              Create One
             </Link>
           </p>
         </div>
