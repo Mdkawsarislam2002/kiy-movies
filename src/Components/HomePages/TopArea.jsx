@@ -1,14 +1,38 @@
 import React from "react";
 import { Search } from "../Icon";
+import { motion } from "framer-motion";
+import { useAuth } from "../../context/AuthContext";
+
 import Banner from "../../assets/strangeBannderMini.jpg";
 
 const TopArea = ({ SearchValue, SearchUserValue, OnSearch }) => {
+  const AuthValue = useAuth();
   return (
     <>
       <div
         style={{ backgroundImage: `url(${Banner})` }}
         className=" bg-center bg-cover p-6 lg:p-5 bg-no-repeat bg-blue-700/70 text-white"
       >
+        <motion.button
+          onClick={(e) => {
+            AuthValue.logout();
+          }}
+          className="btnDanger absolute top-1 right-1 "
+          initial={{
+            opacity: 0,
+            scale: 0,
+          }}
+          animate={{
+            opacity: 1,
+            scale: 1,
+          }}
+          transition={{
+            delay: 5,
+          }}
+        >
+          Log Out
+        </motion.button>
+
         <div className="p-4">
           <h3 className="text-xl lg:text-2xl font-bold text-gray-200">
             Welcome.

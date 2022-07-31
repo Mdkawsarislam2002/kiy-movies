@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { useAuth } from "../context/AuthContext";
 
 import TopArea from "../Components/HomePages/TopArea";
 import PopUpCard from "../Components/HomePages/PopUpCard";
@@ -35,7 +36,8 @@ const Home = () => {
         });
     }
   }, [SearchValue]);
-
+  const AuthValue = useAuth();
+  // console.log(AuthValue);
   return (
     <div>
       <PopUpCard />

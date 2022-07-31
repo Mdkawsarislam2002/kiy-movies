@@ -8,6 +8,7 @@ import KIYLogo from "../Components/KIYLogo";
 
 const LogIn = () => {
   const AuthValue = useAuth();
+  // console.log(AuthValue);
 
   const bgImg = `https://th.bing.com/th/id/R.3ac7eb39e8ee61ff9e0e42f2f5792930?rik=MgrZl8Xqwxu1IQ&riu=http%3a%2f%2fpavbca.com%2fwalldb%2foriginal%2fb%2ff%2fd%2f115598.jpg&ehk=ozWg2J94kayjiJXoZi%2fQp0vBTObpRJE4G9n4fC1h7EA%3d&risl=&pid=ImgRaw&r=0`;
   const Navigate = useNavigate();

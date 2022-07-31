@@ -19,7 +19,10 @@ const MerakiNav = () => {
                 <span className="text-blue-400 underline  mx-2">Movies</span>
                 For Free
               </h1>
-              <Link to={"/logIn"} className="btnDanger inline-block  mt-8  ">
+              <Link
+                to={"/logIn"}
+                className="btnDanger inline-block  mt-8 py-4 px-6 text-lg "
+              >
                 Log In
               </Link>
             </div>

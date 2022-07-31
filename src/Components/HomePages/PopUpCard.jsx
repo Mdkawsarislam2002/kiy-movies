@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useAuth } from "../../context/AuthContext";
 
 const PopUpCard = () => {
+  const AuthValue = useAuth();
+  const { displayName } = AuthValue.currentUser;
+
   const [IsThere, setIsThere] = useState(true);
 
   setTimeout(() => {
@@ -22,7 +25,7 @@ const PopUpCard = () => {
         onClick={() => {
           setIsThere(false);
         }}
-        className=" absolute top-1 right-0 flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800"
+        className="  absolute top-1 right-0 flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800"
       >
         <div className="flex items-center justify-center w-12 bg-emerald-500">
           <svg
@@ -37,7 +40,7 @@ const PopUpCard = () => {
         <div className="px-4 py-2 mx-3  ">
           <div className="mx-3">
             <span className="font-semibold text-emerald-500 dark:text-emerald-400">
-              Success
+              {displayName}
             </span>
             <p className="text-sm text-gray-600 dark:text-gray-200">
               Welcome to our movie website
