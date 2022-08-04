@@ -7,9 +7,9 @@ import SignIn from "./Pages/SignIn";
 import LogIn from "./Pages/LogIn";
 import PrivetRout from "./Components/PrivetRout";
 import ErrorPage from "./Pages/ErrorPage";
+import GetDetails from "./Components/MovieDetails/GetDetails";
 
 const App = () => {
-
   return (
     <>
       <BrowserRouter>
@@ -18,8 +18,7 @@ const App = () => {
             <Route path="/" element={<Roots />} />
             <Route path="/SignIn" element={<SignIn />} />
             <Route path="/login" element={<LogIn />} />
-            <Route path="*" element={<ErrorPage />} />
-
+            <Route path="/*" element={<ErrorPage />} />
             <Route
               path="/home"
               element={
@@ -28,6 +27,7 @@ const App = () => {
                 </PrivetRout>
               }
             />
+            <Route path="/home/movie" element={<GetDetails />} />
           </Routes>
         </AuthProvider>
       </BrowserRouter>

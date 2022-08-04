@@ -1,9 +1,17 @@
 import React from "react";
-import { Star } from "../../Icon";
 import { motion } from "framer-motion";
-const MovieData = ({ title, poster, voteAverage }) => {
+import { Link } from "react-router-dom";
+
+import { Star } from "../../Icon";
+
+const MovieData = ({ title, poster, voteAverage, MovieId }) => {
   let BaseImg = `https://image.tmdb.org/t/p/w500/`;
   let PosterImg = BaseImg + poster;
+
+  const GetMovieDetailsHandler = (e) => {
+    console.log("clicked");
+  };
+
   return (
     <motion.div
       whileHover={{
@@ -34,9 +42,15 @@ const MovieData = ({ title, poster, voteAverage }) => {
               </span>
             </span>
 
-            <button className="px-2 py-1 text-xs font-semibold text-white uppercase transition-colors duration-200 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">
-              Play Now
-            </button>
+            <Link
+              state={MovieId}
+              to={"/home/movie"}
+              onClick={GetMovieDetailsHandler}
+            >
+              <div className="px-4 py-2 text-xs font-semibold text-white uppercase transition-colors duration-200 transform bg-gray-800 rounded hover:bg-gray-700 dark:hover:bg-gray-600 focus:bg-gray-700 dark:focus:bg-gray-600 focus:outline-none">
+                Play Now
+              </div>
+            </Link>
           </div>
         </div>
       </motion.div>

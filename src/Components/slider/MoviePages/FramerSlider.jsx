@@ -36,6 +36,7 @@ const FramerSlider = (props) => {
                     voteAverage={data.vote_average}
                     voteCount={data.vote_count}
                     poster={data.poster_path}
+                    MovieId={data.id}
                   />
                 </motion.div>
               );

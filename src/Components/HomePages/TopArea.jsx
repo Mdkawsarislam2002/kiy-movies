@@ -2,11 +2,13 @@ import React from "react";
 import { Search } from "../Icon";
 import { motion } from "framer-motion";
 import { useAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 import Banner from "../../assets/strangeBannderMini.jpg";
 
 const TopArea = ({ SearchValue, SearchUserValue, OnSearch }) => {
   const AuthValue = useAuth();
+  let Navigate = useNavigate();
   return (
     <>
       <div
@@ -15,6 +17,8 @@ const TopArea = ({ SearchValue, SearchUserValue, OnSearch }) => {
       >
         <motion.button
           onClick={(e) => {
+          
+            Navigate("/");
             AuthValue.logout();
           }}
           className="btnDanger absolute top-1 right-1 "

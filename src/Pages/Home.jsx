@@ -36,8 +36,10 @@ const Home = () => {
         });
     }
   }, [SearchValue]);
+
   const AuthValue = useAuth();
   // console.log(AuthValue);
+
   return (
     <div>
       <PopUpCard />
