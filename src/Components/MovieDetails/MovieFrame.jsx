@@ -1,11 +1,13 @@
 import React from "react";
+import TestImg from "../../assets/netflixBanner.jpg";
 
 const MovieFrame = ({ currentKey }) => {
-  let source = `"https://www.youtube.com/embed/${currentKey}" `;
+  // https://www.youtube.com/watch?v=3Zibb6lVCRw
+  let source = "https://www.youtube.com/embed/" + currentKey;
   return (
     <>
       <iframe
-        width="560"
+        width="100%"
         height="315"
         src={source}
         title="YouTube video player"

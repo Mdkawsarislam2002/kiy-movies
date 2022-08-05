@@ -10,17 +10,16 @@ const GetDetails = () => {
   let locations = useLocation();
   let GettingMovieID = locations.state;
 
-  useEffect(() => {
-    setMovieIdState(GettingMovieID);
-    console.log(MovieIdState);
-  }, []);
-
   let Data = `https://api.themoviedb.org/3/movie/${GettingMovieID}?api_key=b59349f0c2f8513bb5cbf2003ec8678b`;
 
   const { FinalData, IsLoading, IsError } = useFetch(Data);
+
+  useEffect(() => {
+    setMovieIdState(GettingMovieID);
+  }, []);
+
   const {
     homepage,
-    belongs_to_collection,
     genres: AllTags,
     vote_average,
     title,
@@ -52,9 +51,9 @@ const GetDetails = () => {
 
       {/* second part */}
       <div className="flex flex-col sm:flex-row  justify-between">
-        <div className="">
+        <div className="sm:w-[70rem]">
           <img
-            className="p-2 rounded-2xl ]"
+            className="p-2 rounded-2xl w-full"
             src={BaseImagesUrl + poster_path}
             alt=""
           />
@@ -107,16 +106,24 @@ const GetDetails = () => {
           {production_companies &&
             production_companies.map((companiesName) => {
               const { origin_country, logo_path, name } = companiesName;
+
               return (
-                <div className=" border w-[80%]  sm:w-[20rem] min-h-[12rem]  border-teal-500 m-2 p-2 rounded-lg">
-                  <p className="text-xl text-center m-2">
-                    {name} ({origin_country})
-                  </p>
-                  <img
-                    src={BaseImagesUrl + logo_path}
-                    alt={name + " logo not fount"}
-                  />
-                </div>
+                <>
+                  {logo_path ? (
+                    <div className=" border w-[80%]  sm:w-[20rem] min-h-[12rem]  border-gray-300 m-2 p-2 rounded-lg">
+                      <p className="text-xl text-center m-2">
+                        {name} ({origin_country})
+                      </p>
+
+                      <img
+                        src={BaseImagesUrl + logo_path}
+                        alt={name + " logo not fount"}
+                      />
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                </>
               );
             })}
         </div>

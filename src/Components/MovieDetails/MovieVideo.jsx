@@ -8,9 +8,9 @@ const MovieVideo = ({ MovieIdState }) => {
 
   let VideoApi = `https://api.themoviedb.org/3/movie/${MovieIdState}/videos?api_key=b59349f0c2f8513bb5cbf2003ec8678b`;
   const { FinalData, IsLoading, IsError } = useFetch(VideoApi);
-
   useEffect(() => {
     setMovieDataList(FinalData.results);
+    ``;
   }, [FinalData]);
 
   return (

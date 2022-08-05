@@ -13,6 +13,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 const MovieSlider = ({ MovieDataList, MovieIdState }) => {
+  // console.log(MovieIdState);
   return (
     <Swiper
       // install Swiper modules
@@ -23,13 +24,14 @@ const MovieSlider = ({ MovieDataList, MovieIdState }) => {
       pagination={{ clickable: true }}
       //   scrollbar={{ draggable: true }}
       onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log("slide change")}
+      // onSlideChange={() => console.log("slide change")}
     >
       {MovieDataList &&
         MovieDataList.map((value, index) => {
           return (
-            <SwiperSlide key={uuidv4()} className=" border border-teal-800">
+            <SwiperSlide key={index} className=" border border-teal-800">
               <MovieFrame currentKey={value.key} />
+              {/* <img className="w-full h-full" src={TestImg} alt="TestImg" /> */}
             </SwiperSlide>
           );
         })}
@@ -37,3 +39,8 @@ const MovieSlider = ({ MovieDataList, MovieIdState }) => {
   );
 };
 export default MovieSlider;
+
+/*
+
+https://api.themoviedb.org/3/movie/<<movieId>>/videos?api_key=b59349f0c2f8513bb5cbf2003ec8678b
+*/
