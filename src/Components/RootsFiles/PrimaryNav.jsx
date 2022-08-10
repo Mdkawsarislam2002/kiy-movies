@@ -1,20 +1,33 @@
-import React, { useState } from "react";
+import React, { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { Dark, Light } from "../Icon";
+import { useTheme } from "next-themes";
 
 import KIYLogo from "../KIYLogo";
 import DarkModeToggle from "../DarkModeToggle";
 
 const PrimaryNav = () => {
-  const [DarkOrLightMode, setDarkOrLightMode] = useState(true);
   const Navigate = useNavigate();
 
+  const { theme, setTheme } = useTheme();
+  const DarkModeHandler = () => {
+    console.log(theme);
+    if (theme == "light") {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
   return (
     <>
       <nav className="  px-4 flex justify-between py-7 transition-all  hover:bg-slate-800/80  bg-slate-800/70    items-center text-gray-200">
-        <KIYLogo />
+        <div>
+          <KIYLogo />
+        </div>
         <div className="  flex justify-center gap-2    items-center  ">
-          <div className="border border-teal-600 rounded-full p-2 ">
+          <div
+            onClick={DarkModeHandler}
+            className="border border-teal-600 rounded-full p-2 "
+          >
             <DarkModeToggle />
           </div>
           {/* sing in button */}
