@@ -54,7 +54,7 @@ const SignIn = () => {
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         exit={{ scale: 0 }}
-        className="w-screen h-screen bg-gray-100 dark:bg-slate-900  grid place-items-center "
+        className="w-screen h-screen overflow-hidden bg-gray-100 dark:bg-slate-900  grid place-items-center "
         onClick={(e) => {
           setIsError(false);
         }}
